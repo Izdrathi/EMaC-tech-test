@@ -10,7 +10,7 @@ test("/api", async () => {
 
 test("/api/recipes", async () => {
     const { body } = await request.get("/api/recipes").expect(200);
-    body.recipies.forEach((recipe) => {
+    body.recipes.forEach((recipe) => {
         expect(recipe).toEqual(
             expect.objectContaining({
                 id: expect.any(String),
