@@ -11,7 +11,11 @@ const selectRecipes = (id) => {
 const selectRecipeById = (id) => {
     return fs.readFile(filePath, "utf8").then((fileContents) => {
         const recipes = JSON.parse(fileContents);
-        console.log(recipes.id, 111111);
+        for (let i = 0; i < recipes.length; i++) {
+            if (recipes[i].id.includes(id)) {
+                return recipes[i];
+            }
+        }
     });
 };
 
