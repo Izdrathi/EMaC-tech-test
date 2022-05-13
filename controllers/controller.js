@@ -1,7 +1,8 @@
 const { selectRecipes, selectRecipeById } = require("../models/model.js");
 
 const getRecipes = (req, res, next) => {
-    selectRecipes()
+    const filters = req.query;
+    selectRecipes(filters)
         .then((recipes) => {
             res.status(200).send({ recipes });
         })
