@@ -1,7 +1,7 @@
 const fs = require("fs/promises");
 const filePath = "./data/data.json";
 
-const selectRecipes = (id) => {
+const selectRecipes = () => {
     return fs.readFile(filePath, "utf8").then((fileContents) => {
         const recipes = JSON.parse(fileContents);
         return recipes;
