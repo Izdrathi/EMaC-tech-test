@@ -8,10 +8,10 @@ test("/api", async () => {
     expect(body.message).toBe("ok");
 });
 
-test("/api/recipies", async () => {
-    const { body } = await request.get("/api/recipies").expect(200);
-    body.recipies.forEach((recipie) => {
-        expect(recipie).toEqual(
+test("/api/recipes", async () => {
+    const { body } = await request.get("/api/recipes").expect(200);
+    body.recipies.forEach((recipe) => {
+        expect(recipe).toEqual(
             expect.objectContaining({
                 id: expect.any(String),
                 imageUrl: expect.any(String),

@@ -1,15 +1,11 @@
 const apiRouter = require("express").Router();
-const { readFile } = require("fs/promises");
+const { getRecipeById, getRecipes } = require("../controllers/controller.js");
 
 apiRouter.get("/", (_, res) => {
     res.json({ message: "ok" });
 });
 
-apiRouter.get("/recipies", (req, res) => {
-    readFile("./data/data.json", "utf-8").then((fileContents) => {
-        const recipies = JSON.parse(fileContents);
-        res.status(200).send({ recipies });
-    });
-});
+apiRouter.get("/recipes", getRecipes);
+apiRouter.get("/recipes/:id", getRecipeById);
 
 module.exports = apiRouter;
